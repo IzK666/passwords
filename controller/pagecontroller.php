@@ -17,7 +17,7 @@
       * @NoCSRFRequired
       */
      public function index() {
-         return new TemplateResponse('passwords', 'main');
+         $response = new TemplateResponse('passwords', 'main');
          $csp = new ContentSecurityPolicy();
          $csp->addAllowedImageDomain('https://www.google.com');
          $response->setContentSecurityPolicy($csp);
