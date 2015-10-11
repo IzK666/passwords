@@ -259,6 +259,7 @@
 						}
 						$('#accept').click(function() {
 							var new_value = $('#new_value_popup').val();
+							var changed_value = false; // Checks if there are values modified
 							if (col != 13) {
 								// Allow to remove notes
 								if (new_value == null || new_value == '') {
@@ -269,21 +270,26 @@
 							}
 
 							if (col == 0) {
-								// clean up website: https://www.Google.com -> google.com
-								if ((new_value.substring(0,7).toLowerCase() == 'http://' 
-										|| new_value.substring(0,8).toLowerCase() == 'https://'
-										|| new_value.substring(0,4).toLowerCase() == 'www.') 
-									&& address == '') {
-									address = new_value.toLowerCase();
-								}
-								new_value = strip_website(new_value);
-								if (isUrl(new_value)) {
-									new_value = new_value.toLowerCase();
-								}
-
+								// First check if any value has changed:
 								var new_value_address = $('#new_address_popup').val();
-								if (new_value_address == null) {
-									new_value_address = address; // on Cancel, address not changed
+								if (new_value != old_value || new_value_address != address)
+								{
+									changed_value = true;
+									// clean up website: https://www.Google.com -> google.com
+									if ((new_value.substring(0,7).toLowerCase() == 'http://' 
+											|| new_value.substring(0,8).toLowerCase() == 'https://'
+											|| new_value.substring(0,4).toLowerCase() == 'www.') 
+										&& address == '') {
+										address = new_value.toLowerCase();
+									}
+									new_value = strip_website(new_value);
+									if (isUrl(new_value)) {
+										new_value = new_value.toLowerCase();
+									}
+	
+									if (new_value_address == null) {
+										new_value_address = address; // on Cancel, address not changed
+									}
 								}
 							}
 							switch (col) {
@@ -302,47 +308,54 @@
 									break;
 							}
 
-							// do the update to the database
-							var passwords = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
-							var success = passwords.updateActive(db_id, user, website, address, pass, notes, deleted);
-							if (success) {
-								var innerHTMLtext = table.rows[row].cells[col].textContent;
-								table.rows[row].cells[col].innerHTML = innerHTMLtext.replace(old_value, escapeHTML(new_value));
-								formatTable(true);
-							} else {
-								alert(t('passwords', 'Error: Could not update password.'));
-							}
+							if (new_value != old_value || changed_value)
+							{
+								//changed_value = true; // No longer used.
+								// do the update to the database
+								var passwords = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
+								var success = passwords.updateActive(db_id, user, website, address, pass, notes, deleted);
+								if (success) {
+									var innerHTMLtext = table.rows[row].cells[col].textContent;
+									table.rows[row].cells[col].innerHTML = innerHTMLtext.replace(old_value, escapeHTML(new_value));
+									formatTable(true);
+								} else {
+									alert(t('passwords', 'Error: Could not update password.'));
+								}
 
-							$('#overlay').hide();
-							$('#popup').hide();
+								$('#overlay').hide();
+								$('#popup').hide();
 
-							if ($('#keep_old_popup').prop('checked') == true) {
-								// save old pass to trash bin
-								var password = {
-									website: website_old,
-									loginname: user_old,
-									address: address_old,
-									pass: pass_old,
-									notes: notes,
-									deleted: "1"
-								};
+								if ($('#keep_old_popup').prop('checked') == true) {
+									// save old pass to trash bin
+									var password = {
+										website: website_old,
+										loginname: user_old,
+										address: address_old,
+										pass: pass_old,
+										notes: notes,
+										deleted: "1"
+									};
 
-								passwords.create(password).done(function() {
+									passwords.create(password).done(function() {
 
-									var passwords2 = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
-									var view = new View(passwords2);
-									passwords2.loadAll().done(function() {
-										view.renderContent();
+										var passwords2 = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
+										var view = new View(passwords2);
+										passwords2.loadAll().done(function() {
+											view.renderContent();
+										});
+
+									}).fail(function() {
+										alert(t('passwords', 'Error: Could not create password.'));
+										return false;
 									});
-									
 
-								}).fail(function() {
-									alert(t('passwords', 'Error: Could not create password.'));
-									return false;
-								});
-
-								update_pwcount();
-								alert(t('passwords', 'The old value was moved to the trash bin.'));
+									update_pwcount();
+									alert(t('passwords', 'The old value was moved to the trash bin.'));
+								}
+							} else {
+								//alert("No modified values");
+								$('#overlay').hide();
+								$('#popup').hide();
 							}
 
 							// URL needs to be updated; requires reload of page
