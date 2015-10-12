@@ -83,16 +83,12 @@ OC.L10N.register(
 	"Numbers" : "Números",
 	"October" : "octubre",
 	"Only files with CSV as file extension are allowed." : "Sólo se admiten archivos con la extensión CSV.",
-
-
-
 	"or" : "o",
 	"Orange" : "Naranja",
 	"Password" : "Contraseña",
 	"Passwords" : "Contraseñas",
 	"Please note that without a secure connection, your passwords may be accessible by everyone who is also connected to your network (WiFi or 3G/4G). The only security that remains, is the security of the network you are connected to. A company network is safer than a public network like in restaurants or shops." : "Recuerda que sin una conexión segura, tus contraseñas podrían ser accesibles por cualquiera que esté conectado a la misma red que tú (WiFi o 3G/4G). La única seguridad que habrá es la seguridad de la red a la que estés conectado. La red del trabajo es más segura que una red pública como la de restaurantes o tiendas.",
 	"Press %s to copy this selected value to clipboard" : "Pulsa %s para copiar el valor seleccionado al portapapeles",
-
 	"Preview" : "Previsualización",
 	"Punctuation marks" : "Símbolos",
 	"Red" : "Rojo",
@@ -125,15 +121,12 @@ OC.L10N.register(
 	"This function is unsupported on your browser. Use a modern browser instead." : "Esta función no está soportada en tu navegador. Utiliza un navegador más moderno.",
 	"This is not a valid CSV file." : "El archivo CSV no es válido.",
 	"This is not a valid URL, so this value will not be saved:" : "La URL no es correcta, y por tanto la contraseña no se guardará",
-
 	"This will delete the password for" : "Esto eliminará la contraseña para",
 	"This will download an unencrypted backup file, which contains all your passwords." : "Esto descargará un archivo backup sin cifrar, que contiene todas tus contraseñas.",
 	"This will help users finding a website they are looking for in their list and it looks rather nice too, but it will send your IP address to another server" : "Esto facilita a los usuarios a encontrar el sitio web que busca en su lista y mejora el aspecto, pero se enviará su dirección IP a otro servidor",
 	"This will permanently delete all passwords in this trash bin." : "Esta acción eliminará todas las contraseñas de la papelera",
 	"This will show values as '*****', so you will need to click on a value to actually view it. This is useful to prevent others from making screenshots or taking photos of your password list" : "Esto mostrará valores como '*****' y deberá hacer clic en un valor para verlo. Esto es útil para evitar que otras personas puedan realizar fotos o capturas de pantalla de su lista de contraseñas",
 	"to continue without a secure connection." : "para continuar sin una conexión segura.",
-	
-	
 	"to" : "a",
 	"today" : "hoy",
 	"Trash bin" : "Papelera",
