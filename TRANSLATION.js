@@ -142,7 +142,7 @@
 "Use 'x' to exclude a field" : ""
 "Use DuckDuckGo" : ""
 "Use Google" : ""
-"Values are seperated by quotation marks" : ""
+"Values are separated by quotation marks" : ""
 "Weak" : ""
 "Website icons" : ""
 "Website or company" : ""
