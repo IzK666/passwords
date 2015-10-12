@@ -97,7 +97,7 @@ OC.L10N.register(
 	"Security" : "Seguridad",
 	"Select all" : "Seleccionar todo",
 	"Select at least one option to generate a password." : "Elige al menos una opción para generar la contraseña.",
-	"Select none" : "Nada",
+	"Select none" : "No seleccionar nada",
 	"Select options" : "Elige opciones",
 	"September" : "septiembre",
 	"Show website icons" : "Muestra iconos de sitio web",
