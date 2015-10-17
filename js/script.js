@@ -1497,13 +1497,14 @@ function renderCSV(firstTime) {
 	$('#CSVerrorfield').empty();
 
 	var contents = $('#CSVcontent').text();
+	contents = contents.replace(/"\n/g,"\"\"\n").replace(/"\r\n/g,"\"\"\r\n");
 
 	if ($('#CSVsplit_rnBtn').hasClass('CSVbuttonOff')) {
 		var count = (contents.match(/\n/g) || []).length + 1;
-		var lines = contents.split('\n');
+		var lines = contents.split('"\n');
 	} else {
 		var count = (contents.match(/\r\n/g) || []).length + 1;
-		var lines = contents.split('\r\n');
+		var lines = contents.split('"\r\n');
 	}
 	if ($('#CSVheadersBtn').hasClass('CSVbuttonOff')) {
 		var startRow = 0;
@@ -1737,7 +1738,7 @@ function importCSV() {
 	var urlColumn = -1;
 	var notesColumn = -1;
 
-	for (var i = 0; i < countColumns; i++) {
+	for (var i = 0; i <= countColumns; i++) {
 		if ($('#CSVcolumn' + i).val() == 'website') {
 			websiteColumn = i;
 		}
@@ -1770,7 +1771,7 @@ function importCSV() {
 
 	for (var r = 1; r < CSVtable.rows.length; r++) {
 		if ($('#CSVcheckRow' + r).is(":checked")) {
-			for (var c = 0; c < countColumns; c++) {
+			for (var c = 0; c <= countColumns; c++) {
 				if (c == websiteColumn) {
 					websiteCSV = CSVtable.rows[r].cells[c].textContent;
 				}
@@ -1819,7 +1820,6 @@ function importCSV() {
 			});
 		}
 	}
-
 	importPassword(passarray);
 }
 
