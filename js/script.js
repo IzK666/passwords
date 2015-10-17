@@ -1857,9 +1857,11 @@ function importPassword(array) {
 				method: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(password),
-				success: if (array.length == 0)
-						setTimeout(function(){alert(t('passwords', 'Import of passwords done. This page will now reload.'));location.reload(true);},1000)
+				success: function(data) {
+					if (array.length == 0)
+						setTimeout(function(){alert(t('passwords', 'Import of passwords done. This page will now reload.'));location.reload(true);},1000);
 					importPassword(array);
+					}
 			});
 	}
 }
