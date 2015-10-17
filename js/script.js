@@ -1766,7 +1766,6 @@ function importCSV() {
 	var urlCSV = '';
 	var passwordCSV = '';
 	var notesCSV = '';
-	var passwordsDone = 0;
 	var passarray = [];
 
 	for (var r = 1; r < CSVtable.rows.length; r++) {
