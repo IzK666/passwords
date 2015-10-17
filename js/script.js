@@ -1818,34 +1818,10 @@ function importCSV() {
 				notes : notesCSV,
 				deleted : "0"
 			});
-
-			//add them one at the time
-			/*var success = $.ajax({
-					url: OC.generateUrl('/apps/passwords/passwords'),
-					method: 'POST',
-					contentType: 'application/json',
-					data: JSON.stringify(password)
-				});
-
-			if (success) {
-				passwordsDone = passwordsDone + 1;
-			} else {
-				alert(t('passwords', 'Error: Could not create password.') 
-					+ '\n\n'
-					+ t('passwords', 'Website or company') + ': ' + websiteCSV + '\n'
-					+ t('passwords', 'Full URL') + ': ' + urlCSV + '\n'
-					+ t('passwords', 'Login name') + ': ' + loginCSV + '\n'
-					+ t('passwords', 'Password') + ': ' + passwordCSV + '\n'
-					+ t('passwords', 'Notes') + ':\n' + notesCSV);
-			}*/
 		}
 	}
 
 	importPassword(passarray);
-	/*if (passwordsDone > 0) {
-		alert(t('passwords', 'Import of passwords done. This page will now reload.'));
-		location.reload(true);
-	}*/
 }
 
 function importPassword(array) {
