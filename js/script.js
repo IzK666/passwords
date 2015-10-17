@@ -1767,6 +1767,7 @@ function importCSV() {
 	var passwordCSV = '';
 	var notesCSV = '';
 	var passwordsDone = 0;
+	var passarray = [];
 
 	for (var r = 1; r < CSVtable.rows.length; r++) {
 		if ($('#CSVcheckRow' + r).is(":checked")) {
@@ -1809,17 +1810,17 @@ function importCSV() {
 				}
 			}
 
-			var password = {
+			passarray.push({
 				website : websiteCSV,
 				loginname : loginCSV,
 				address : urlCSV,
 				pass : passwordCSV,
 				notes : notesCSV,
 				deleted : "0"
-			};
+			});
 
 			//add them one at the time
-			var success = $.ajax({
+			/*var success = $.ajax({
 					url: OC.generateUrl('/apps/passwords/passwords'),
 					method: 'POST',
 					contentType: 'application/json',
@@ -1836,13 +1837,30 @@ function importCSV() {
 					+ t('passwords', 'Login name') + ': ' + loginCSV + '\n'
 					+ t('passwords', 'Password') + ': ' + passwordCSV + '\n'
 					+ t('passwords', 'Notes') + ':\n' + notesCSV);
-			}
+			}*/
 		}
 	}
 
-	if (passwordsDone > 0) {
+	importPassword(passarray);
+	/*if (passwordsDone > 0) {
 		alert(t('passwords', 'Import of passwords done. This page will now reload.'));
 		location.reload(true);
+	}*/
+}
+
+function importPassword(array) {
+	var password = array[0];
+	if (array.length > 0) {
+		array.shift();
+		var success = $.ajax({
+				url: OC.generateUrl('/apps/passwords/passwords'),
+				method: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(password),
+				success: if (array.length == 0)
+						setTimeout(function(){alert(t('passwords', 'Import of passwords done. This page will now reload.'));location.reload(true);},1000)
+					importPassword(array);
+			});
 	}
 }
 
