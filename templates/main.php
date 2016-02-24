@@ -4,7 +4,7 @@
 		$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 		if (false !== strpos($url,'d=1')) {
-			OC_Log::write('passwords', 'Passwords app accessed without secure connection.', OC_Log::WARN);
+			OCP\Util::writeLog(write('passwords', 'Passwords app accessed without secure connection.', OCP\Util::WARN);
 		    return true;
 		}
 
@@ -38,21 +38,23 @@
 			<div id="app-content-wrapper">
 				<?php print_unescaped($this->inc('part.content')); ?>
 			</div>
+			<div id="app-sidebar-wrapper">
+				<?php print_unescaped($this->inc('part.sidebar')); ?>
+			</div>
 		</div>
 	</div>
 
 <?php } else {
-		
-		OC_Log::write('passwords', 'Passwords app blocked; no secure connection.', OC_Log::ERROR);
+	OCP\Util::writeLog('passwords', 'Passwords app blocked; no secure connection.', OCP\Util::ERROR);
 ?>
 
-		<div id="app">
+	<div id="app">
 
-			<div id="app-content">
-				<div id="app-content-wrapper">
-					<?php print_unescaped($this->inc('part.blocked')); ?>
-				</div>
+		<div id="app-content">
+			<div id="app-content-wrapper">
+				<?php print_unescaped($this->inc('part.blocked')); ?>
 			</div>
 		</div>
+	</div>
 
-	<?php } ?>
+<?php } ?>
