@@ -146,7 +146,6 @@ OC.L10N.register(
 	"This function is unsupported on your browser. Use a modern browser instead." : "Deze functie wordt niet ondersteund in uw browser. Gebruik een modernere browser.",
 	"This is not a valid CSV file." : "Dit is geen geldig CSV-bestand.",
 	"This is not a valid URL, so this value will not be saved:" : "Dit is geen geldige URL, waardoor deze niet wordt opgeslagen:",
-	"This is not a valid URL, so this value will not be saved:" : "Dit is geen geldige URL, waardoor deze niet wordt opgeslagen:",
 	"This will delete the category" : "Dit verwijdert de categorie",
 	"This will delete the password for" : "Dit verwijdert het wachtwoord voor",
 	"This will download an unencrypted backup file, which contains all your passwords." : "Hiermee downloadt u een ongecodeerd back-upbestand, waarin al uw wachtwoorden staan.",
