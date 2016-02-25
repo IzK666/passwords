@@ -5,7 +5,6 @@ OC.L10N.register(
 	"ACCESS BLOCKED" : "ACCESO BLOQUEADO",
 	"Active passwords" : "Contraseñas activas",
 	"Add category" : "Añadir categoría",
-	"Add new category" : "Añadir nueva categoría",
 	"Add new password" : "Añadir nueva contraseña",
 	"Add password" : "Añadir contraseña",
 	"after" : "después de",
