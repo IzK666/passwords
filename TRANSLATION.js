@@ -7,7 +7,6 @@
 "ACCESS BLOCKED" : ""
 "Active passwords" : ""
 "Add category" : ""
-"Add new category" : ""
 "Add new password" : ""
 "Add password" : ""
 "after" : ""
