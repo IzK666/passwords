@@ -5,7 +5,6 @@ OC.L10N.register(
 	"ACCESS BLOCKED" : "ZUGRIFF GESPERRT",
 	"Active passwords" : "Aktive Passwörter",
 	"Add category" : "Neues Kategorie hinzufügen",
-	"Add new category" : "Neues Kategorie hinzufügen",
 	"Add new password" : "Passwort hinzufügen",
 	"Add password" : "Passwort hinzufügen",
 	"after" : "nach",
