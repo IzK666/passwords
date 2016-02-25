@@ -31,7 +31,7 @@ OC.L10N.register(
 	"Click to download a backup as an UNENCRYPTED plain text file" : "Clica per descarregar una còpia en un arxiu de text SENSE ENCRIPTAR",
 	"Click to move all active passwords to the trash" : "Clica per moure totes les contrasenyes a la paperera",
 	"Colour of password date" : "Color de la contrasenya",
-	"Content" : "Contingut",
+	"Context menu" : "Menú contextual",
 	"Copy" : "Copiar",
 	"Create a new category" : "Crea una nova categoria",
 	"Context menu" : "Menú contextual",
