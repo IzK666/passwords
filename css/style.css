@@ -424,7 +424,7 @@ h3,
 	height: 28px !important
 }
 #new_notes {
-	height: 52px !important;
+	height: 78px !important;
 }
 #new_password_add,
 #new_generate {
@@ -725,7 +725,7 @@ orange {
 #popupTitle {
 	width: 100%;
 	height: 63px;
-	background: #102044;
+	background: #998100;
 	color: #fff;
 	font-size: 2em;
 	vertical-align: middle;
@@ -955,12 +955,14 @@ h2 {
 	#column_datechanged, .cell_datechanged {
 		display: none;
 	}
-	#column_category, .cell_category {
-		display: none;
-	}
 }
 @media screen and (max-width: 1050px) {
 	#column_strength, .cell_strength {
+		display: none;
+	}
+}
+@media screen and (max-width: 1000px) {
+	#column_category, .cell_category {
 		display: none;
 	}
 }
