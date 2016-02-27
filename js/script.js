@@ -1404,10 +1404,10 @@ function formatTable(update_only, rows) {
 							'</div></td>';
 			} else { // place button before value for very long login names
 				html_row += '<td type="loginname" sorttable_customkey=' + escapeHTML(row.loginname, false) + ' class="cell_username">' +
+							escapeHTML(row.loginname, true) +
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
 							'</div>' +
-							escapeHTML(row.loginname, true) +
 							'</td>';
 			}
 			// end loginname
@@ -1421,10 +1421,10 @@ function formatTable(update_only, rows) {
 							'</div></td>';
 			} else { // place button before value for very long passwords
 				html_row += '<td type="pass" sorttable_customkey=' + escapeHTML(row.pass, false) + ' class="cell_password">' +
+							escapeHTML(row.pass, true) +
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
 							'</div>' +
-							escapeHTML(row.pass, true) +
 							'</td>';
 			}
 
