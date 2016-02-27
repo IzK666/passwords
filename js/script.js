@@ -1028,7 +1028,7 @@
 						$('#new_notes').val('');
 						$('#generate_strength').text('');
 						$('#generate_passwordtools').fadeOut(250);
-						$('#gen_length').val('25');
+						$('#gen_length').val('30');
 
 						var passwords = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
 						var view = new View(passwords);
@@ -2538,7 +2538,7 @@ function popUp(title, value, type, address_value, website, username) {
 	$('<br/>').appendTo($('#popupContent'));
 	$('<p/>', {text:title + ':'}).appendTo($('#popupContent'));
 	if (type == 'notes') {
-		$('<textarea/>', {id:"new_value_popup", rows:"5"}).val(value).appendTo($('#popupContent'));
+		$('<textarea/>', {id:"new_value_popup", rows:"8"}).val(value).appendTo($('#popupContent'));
 	} else if (type == 'category') {
 		$('#popupContent').append('<div id="new_value_popup">' + $('#new_category').html() + '</div>');
 		$('#new_value_popup select option').last().remove(); // no Edit categories
