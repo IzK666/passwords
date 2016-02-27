@@ -2579,7 +2579,7 @@ function popUp(title, value, type, address_value, website, username) {
 		}
 
 		if (type == 'website' || type == 'loginname' || type == 'password') {
-			$('<input>', {type:'checkbox', id:"keep_old_popup"}).prop("checked", 'true').appendTo($('#popupContent'));
+			$('<input>', {type:'checkbox', id:"keep_old_popup"}).appendTo($('#popupContent'));
 			$('<label/>', {for:'keep_old_popup', id:"keep_old_popuplbl", text:t('passwords', 'Move old value to trash bin')}).appendTo($('#popupContent'));
 		}
 
