@@ -99,7 +99,7 @@ OC.L10N.register(
 	"No categories" : "Sense categories",
 	"No categories yet" : "Sense categories encara",
 	"No passwords yet" : "Sense contrasenyes encara",
-	"None" : "Res",
+	"None" : "Cap",
 	"Note: the search function will not work on hidden values" : "Nota: La funció de cerca no funcionarà en valors ocults",
 	"Note: This field is optional and can be left blank." : "Nota: Aquest camp és opcional i es pot deixar en blanc.",
 	"Notes (optional)" : "Annotacions (opcional)",
