@@ -1369,11 +1369,20 @@ function formatTable(update_only, rows) {
 
 				if (show_icons) {
 					var icons_service = $('#app-settings').attr("icons-service");
-					if (icons_service == 'ddg') { // DuckDuckGo
-						html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://icons.duckduckgo.com/ip2/' + row.website + '.ico">' + row.website + '</a>';
-					}
-					if (icons_service == 'ggl') { // Google
-						html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://www.google.com/s2/favicons?domain=' + row.website + '">' + row.website + '</a>';
+					if (row.address.length == 0) {
+						if (icons_service == 'ddg') { // DuckDuckGo
+							html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://icons.duckduckgo.com/ip2/' + row.website + '.ico">' + row.website + '</a>';
+						}
+						if (icons_service == 'ggl') { // Google
+							html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://www.google.com/s2/favicons?domain=' + row.website + '">' + row.website + '</a>';
+						}
+					} else {
+						if (icons_service == 'ddg') { // DuckDuckGo
+							html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://icons.duckduckgo.com/ip2/' + getUrl(row.address) + '.ico">' + row.website + '</a>';
+						}
+						if (icons_service == 'ggl') { // Google
+							html_row += '<a href="' + websiteURL + '" target="_blank"><img class="websitepic" src="https://www.google.com/s2/favicons?domain=' + getUrl(row.address) + '">' + row.website + '</a>';
+						}
 					}
 				} else {
 					html_row += '<a href="' + websiteURL + '" target="_blank">' + row.website + '</a>';
@@ -1967,6 +1976,13 @@ function isUrl(url) {
 	var re = new RegExp(strRegex);
 
 	return re.test(url);
+}
+function getUrl(url) {
+	var strRegex = '\/\/((\\w+\\.)?([\\w-]+\\.\\w{2,}))';
+	var re = new RegExp(strRegex);
+	var out = re.exec(url);
+
+	return (out)? out[1] : "";
 }
 function strip_website(website) {
 
