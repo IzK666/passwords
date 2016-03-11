@@ -1404,15 +1404,17 @@ function formatTable(update_only, rows) {
 			
 			// end website
 
+			var d = new Date(row.datechanged);
+			var d2c = date2class(d);
 			// start loginname
 			if (hide_usernames) {
-				html_row += '<td type="loginname" sorttable_customkey=' + escapeHTML(row.loginname, false) + ' class="hidden_value">' +
+				html_row += '<td type="loginname" sorttable_customkey=' + escapeHTML(row.loginname, false) + ' class="hidden_value ' + d2c + '">' +
 							'******' + 
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
 							'</div></td>';
-			} else { // place button before value for very long login names
-				html_row += '<td type="loginname" sorttable_customkey=' + escapeHTML(row.loginname, false) + ' class="cell_username">' +
+			} else {
+				html_row += '<td type="loginname" sorttable_customkey=' + escapeHTML(row.loginname, false) + ' class="cell_username ' + d2c + '">' +
 							escapeHTML(row.loginname, true) +
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
@@ -1423,13 +1425,13 @@ function formatTable(update_only, rows) {
 
 			// start password
 			if (hide_passwords) {
-				html_row += '<td type="pass" sorttable_customkey=' + escapeHTML(row.pass, false) + ' class="hidden_value">' +
+				html_row += '<td type="pass" sorttable_customkey=' + escapeHTML(row.pass, false) + ' class="hidden_value ' + d2c + '">' +
 							'******' + 
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
 							'</div></td>';
-			} else { // place button before value for very long passwords
-				html_row += '<td type="pass" sorttable_customkey=' + escapeHTML(row.pass, false) + ' class="cell_password">' +
+			} else {
+				html_row += '<td type="pass" sorttable_customkey=' + escapeHTML(row.pass, false) + ' class="cell_password ' + d2c + '">' +
 							escapeHTML(row.pass, true) +
 							'<div class="btn_commands_inline">' +
 								'<input class="btn_commands_open" type="button">' +
@@ -1446,8 +1448,7 @@ function formatTable(update_only, rows) {
 							'</div></td>';
 				// end strength
 				// start date
-				var d = new Date(row.datechanged);
-				html_row += '<td sorttable_customkey=' + date2sortkey(d) + ' class="' + date2class(d) + ' cell_datechanged"><span>' + 
+				html_row += '<td sorttable_customkey=' + date2sortkey(d) + ' class="' + d2c + ' cell_datechanged"><span>' + 
 								date2str(d, true) +
 							'</span><div class="btn_commands_inline dateChanged">' +
 								date2str(d, false) +
