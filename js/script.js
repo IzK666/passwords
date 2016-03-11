@@ -712,7 +712,7 @@
 						popUp(t('passwords', 'Category'), $row.attr('attr_category'), 'category', '', $row.attr('attr_website'), $row.attr('attr_loginname'));
 						$('#accept').click(function() {
 							$row.attr('attr_category', $('#new_value_popup select').val());
-							var success = passwords.updateActive($row.attr('attr_id'), $row.attr('attr_loginname'), $row.attr('attr_website'), $row.attr('attr_address'), $row.attr('attr_pass'), $row.attr('attr_notes'), $row.attr('attr_category'), $row.hasClass('is_deleted'));
+							var success = passwords.updateActive($row.attr('attr_id'), $row.attr('attr_loginname'), $row.attr('attr_website'), $row.attr('attr_address'), $row.attr('attr_pass'), $row.attr('attr_notes'), $row.attr('attr_category'), $row.hasClass('is_deleted'), $row.attr('attr_datechanged'));
 							if (success) {
 								var view = new View(passwords);
 								passwords.loadAll().done(function() {
@@ -739,7 +739,7 @@
 						popUp(t('passwords', 'Notes'), $row.attr('attr_notes'), 'notes', '', $row.attr('attr_website'), $row.attr('attr_loginname'));
 						$('#accept').click(function() {
 							$row.attr('attr_notes', $('#new_value_popup').val());
-							var success = passwords.updateActive($row.attr('attr_id'), $row.attr('attr_loginname'), $row.attr('attr_website'), $row.attr('attr_address'), $row.attr('attr_pass'), $row.attr('attr_notes'), $row.attr('attr_category'), $row.hasClass('is_deleted'));
+							var success = passwords.updateActive($row.attr('attr_id'), $row.attr('attr_loginname'), $row.attr('attr_website'), $row.attr('attr_address'), $row.attr('attr_pass'), $row.attr('attr_notes'), $row.attr('attr_category'), $row.hasClass('is_deleted'), $row.attr('attr_datechanged'));
 							if (success) {
 								if ($row.attr('attr_notes').length == 0) {
 									$cell.removeClass('has-note');
