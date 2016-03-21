@@ -1222,10 +1222,10 @@ function renderCategories(categories) {
 	// fill table
 	var table = document.getElementById('CategoriesTableContent');
 
-	if (table.rows.length == 0) {
+	/*if (table.rows.length == 0) {
 		$('#emptycategories').show();
 		$('#new_category').append('<p>(' + t('passwords', 'No categories') + ')</p><br>');
-	} else {
+	} else {*/
 		$('#emptycategories').hide();
 		var cat_select = '<select>' // for new passwords
 		cat_select += '<option value=0>(' + t('passwords', 'None') + ')</option>';
@@ -1242,7 +1242,7 @@ function renderCategories(categories) {
 		cat_select += '</select>';
 		$('#new_category').append(cat_select);
 		$('#nav_category_list').html(cat_select);
-	}
+	//}
 }
 function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
