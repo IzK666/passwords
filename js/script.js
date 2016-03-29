@@ -347,6 +347,7 @@
 					var notes = $row.attr('attr_notes');
 					var category = $row.attr('attr_category');
 					var deleted = $row.hasClass('is_deleted');
+					var date = $row.attr('attr_datechanged');
 					$('#cmd_id').val(id);
 					$('#cmd_type').val(type);
 					$('#cmd_value').val(value);
@@ -356,6 +357,7 @@
 					$('#cmd_notes').val(notes);
 					$('#cmd_category').val(category);
 					$('#cmd_deleted').val(deleted);
+					$('#cmd_date').val(date);
 					if (type == 'website') {
 						$('#cmd_address').val($row.attr('attr_address'));
 					} else {
@@ -501,11 +503,6 @@
 
 						if ($('#keep_old_popup').prop('checked') == true) {
 							// save row to trash bin first
-							var d = new Date();
-							// date as YYYY-MM-DD
-							var changedDate = d.getFullYear()
-								+ '-' + ('0' + (d.getMonth() + 1)).slice(-2)
-								+ '-' + ('0' + d.getDate()).slice(-2);
 							var pass_old = $('#cmd_pass').val();
 							var password = {
 								'website': $('#cmd_website').val(),
@@ -520,7 +517,7 @@
 									'"number" : "' + ~~strHasNumber(pass_old) + '", ' +
 									'"special" : "' + ~~strHasSpecial(pass_old) + '", ' +
 									'"category" : "' + $('#cmd_category').val() + '", ' +
-									'"datechanged" : "' + changedDate + '", ' +
+									'"datechanged" : "' + $('#cmd_date').val() + '", ' +
 									'"notes" : "' + $('#cmd_notes').val() + '"',
 								'deleted': '1'
 							};
@@ -536,6 +533,11 @@
 							});
 						}
 
+						var d = new Date();
+						// date as YYYY-MM-DD
+						var changedDate = d.getFullYear()
+							+ '-' + ('0' + (d.getMonth() + 1)).slice(-2)
+							+ '-' + ('0' + d.getDate()).slice(-2);
 						// overwrite proper field(s) with new value(s)
 						switch (typeVar) {
 							case 'website':
@@ -544,13 +546,15 @@
 								break;
 							case 'loginname':
 								$('#cmd_loginname').val(newvalue);
+								$('#cmd_date').val(changedDate);
 								break;
 							case 'password':
 								$('#cmd_pass').val(newvalue);
+								$('#cmd_date').val(changedDate);
 								break;
 						}
 
-						var success = passwords.updateActive($('#cmd_id').val(), $('#cmd_loginname').val(), $('#cmd_website').val(), $('#cmd_address').val(), $('#cmd_pass').val(), $('#cmd_notes').val(), $('#cmd_category').val(), $('#cmd_deleted').val());
+						var success = passwords.updateActive($('#cmd_id').val(), $('#cmd_loginname').val(), $('#cmd_website').val(), $('#cmd_address').val(), $('#cmd_pass').val(), $('#cmd_notes').val(), $('#cmd_category').val(), $('#cmd_deleted').val(), $('#cmd_date').val());
 						if (success) {
 							var passwords = new Passwords(OC.generateUrl('/apps/passwords/passwords'));
 							var view = new View(passwords);
