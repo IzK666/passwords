@@ -45,6 +45,7 @@ $version = \OCP\Config::getAppValue('passwords', 'installed_version', '');
 		<input type="text" id="cmd_pass">
 		<input type="text" id="cmd_notes">
 		<input type="text" id="cmd_category">
+		<input type="text" id="cmd_date">
 	</div>
 	<div id="zeroclipboard_copied">
 		<p id="copied_text"><?php p($l->t("Value copied to clipboard")); ?></p>
