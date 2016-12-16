@@ -1131,7 +1131,7 @@
 					var numbers_checked = $('#gen_numbers').prop('checked');
 					var special_checked = $('#gen_special').prop('checked');
 					var length_filled = $('#gen_length').val();
-					var generate_new = '';
+					var generate_new = '&#1';
 
 					if (!isNumeric(length_filled) || length_filled.length == 0 || length_filled < 4) {
 						OCdialogs.alert(t('passwords', 'Fill in a valid number as length with a minimum of 4.'), t('passwords', 'Generate password'), null, true);
@@ -1143,8 +1143,9 @@
 					}
 
 					// run
-					generate_new = generatepw(lower_checked, upper_checked, numbers_checked, special_checked, length_filled);
-					
+					while (generate_new.match(/&#x?[0-9]+/) !== null) {
+						generate_new = generatepw(lower_checked, upper_checked, numbers_checked, special_checked, length_filled);
+					}
 					// calculate strength
 					strength_str(generate_new, false);
 
